@@ -1,0 +1,24 @@
+extends layout.pug
+
+block content 
+  nav.grid-container.portfolio-breadcrumb
+    a(href='/') ← Back
+  article.grid-container.portfolio-intro.portfolio-project
+    .grid-x
+      .cell.small-12.medium-9.large-9
+        h1= data[id].project_name
+        p.lead.text-light= data[id].description
+      .cell.portfolio-meta.small-12.medium-2.large-3
+        h6 Technologies
+        ul.list
+          each val in data[id].technologies
+            li= val
+        a.portfolio-link(href=`${data[id].live_link}`, target="_blank") 
+          i.fas.fa-globe-americas 
+          | Live Demo
+        a.portfolio-link(href=`${data[id].github_link}`, target="_blank") 
+          i.fab.fa-github 
+          | GitHub Repo
+    img.image(src=`${data[id].image_urls[1]}`)
+    img.image(src=`${data[id].image_urls[2]}`)
+    img.image(src=`${data[id].image_urls[3]}`)
